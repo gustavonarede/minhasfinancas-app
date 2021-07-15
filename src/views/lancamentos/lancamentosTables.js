@@ -12,7 +12,9 @@ export default props => {
                  <td>{lancamento.tipo}</td>
                  <td>{lancamento.mes}</td>
                  <td>{lancamento.status}</td>
-                 <td>{lancamento.mes}</td>
+                 <td>
+                     
+                 </td>
              </tr>
          )
      })

@@ -20,7 +20,7 @@ class ConsultaLancamentos extends React.Component{
         this.service = new LancamentoService();
     }
     buscar = () => {
-        const usuarioLogado = LocalStorageService.obterItem('_usuario_logado')
+        const usuarioLogado = LocalStorageService.obterItem('_usuario_logado');
         
         const lancamentoFiltro ={
             ano: this.state.ano,
@@ -30,7 +30,7 @@ class ConsultaLancamentos extends React.Component{
         }
         this.service
             .consultar(lancamentoFiltro)
-            .then(resposta =>{
+            .then(resposta => {
                 this.setState({ lancamentos: resposta.data})
             }).catch(error => { 
                 console.log(error)
@@ -78,7 +78,7 @@ class ConsultaLancamentos extends React.Component{
                             <FormGroup htmlFor="inputMes" label="Mês: *">
                                 <SelectMenu id="inputMes"
                                 value={this.state.mes}
-                                onChange={e => this.setState({ mes:e.target.value})}
+                                onChange={e => this.setState({ mes: e.target.value})}
                                  className="form-control"
                                   lista={meses} />
 
