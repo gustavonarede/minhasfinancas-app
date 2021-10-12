@@ -74,6 +74,22 @@ this.props.history.push(`/cadastro-lancamentos/${id}`)
     preparaFormularioCadastro = () =>{
         this.props.history.push('/cadastro-lancamentos')
     }
+
+    alterarStatus = (lancamento, status) => {
+        this.service
+            .alterarStatus(lancamento.id, status)
+            .then(response => {
+                const lancamentos = this.state.lancamentos;
+
+               const index = lancamentos.indexOf(lancamento);
+               if(index !== -1){
+                   lancamento['status'] = status;
+                   lancamentos[index] = lancamento;
+                   this.setState({lancamentos});
+               }
+                messages.mensagemSucesso("Status atualizado com sucesso");
+            })
+    }
     render(){
         const meses = this.service.obterListaMeses();
         const tipos = this.service.obterListaTipos();
@@ -141,7 +157,8 @@ this.props.history.push(`/cadastro-lancamentos/${id}`)
                         <div className="bs-component">
                             <LancamentosTable lancamentos={this.state.lancamentos}
                                  deleteAction={this.abrirConfirmacao}
-                                 editAction={this.editar} />
+                                 editAction={this.editar}
+                                 alterarStatus={this.alterarStatus} />
                         </div>
                     </div>
                 </div>
