@@ -7,23 +7,23 @@ const deslogar = () => {
 }
 
 const isUsuarioAutenticado = ()=>{
-  return AuthService.removerUsuarioAutenticado();
+  return isUsuarioAutenticado();
 }
 function Navbar(){
     
     return (
 
-        <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-      <div class="container">
+        <div className="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+      <div className="container">
         <a href="https://bootswatch.com/" class="navbar-brand">Minhas Finanças</a>
-        <button class="navbar-toggler" type="button"
+        <button className="navbar-toggler" type="button"
          data-toggle="collapse" data-target="#navbarResponsive"
           aria-controls="navbarResponsive" aria-expanded="false"
            aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav">
+        <div className="collapse navbar-collapse" id="navbarResponsive">
+          <ul className="navbar-nav">
               <NavbarItem render={isUsuarioAutenticado()} href="#/home" label="Home" />
               <NavbarItem render={isUsuarioAutenticado()} href="#/cadastro-usuarios" label="Usuarios" />
               <NavbarItem render={isUsuarioAutenticado()} href="#/consulta-lancamentos" label="Lançamentos" />

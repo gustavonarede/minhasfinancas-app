@@ -5,6 +5,7 @@
         {
 
             static isUsuarioAutenticado(){
+                this.isUsuarioAutenticado
                 const usuario = LocalStorageService.obterItem('_usuario_logado')
                 return usuario && usuario.id;
 
@@ -17,6 +18,6 @@
                 LocalStorageService.adicionarItem(USUARIO_LOGADO, usuario)
             }
             static obterUsuarioAutenticado(){
-                LocalStorageService.obterItem(USUARIO_LOGADO);
+               return LocalStorageService.obterItem(USUARIO_LOGADO);
             }
         }
