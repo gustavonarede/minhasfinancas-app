@@ -35,7 +35,7 @@ export default class LancamentoService extends ApiService {
     }
 
     alterarStatus(id, status){
-        return this.put(`/${id}`,{status})
+        return this.put(`/${id}/atualiza-status`,{status})
 
     }
     validar(lancamento){
@@ -67,7 +67,7 @@ export default class LancamentoService extends ApiService {
         return this.post('/', lancamento);
     }
     atualizar(lancamento){
-        return this.put(`/${lancamento.id}`, lancamento)
+        return this.put(`/${lancamento.id}`, lancamento);
     }
     consultar(lancamentoFiltro){
         let params = `?ano=${lancamentoFiltro.ano}`

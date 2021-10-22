@@ -42,7 +42,11 @@ class ConsultaLancamentos extends React.Component{
         this.service
             .consultar(lancamentoFiltro)
             .then(resposta => {
-                this.setState({ lancamentos: resposta.data})
+                const lista = resposta.data;
+                if(lista.length < 1){
+                    messages.mensagemAlert("Nenhum resultado encontrado !");
+                }
+                this.setState({ lancamentos: lista})
             }).catch(error => { 
                 console.log(error)
             })
@@ -84,7 +88,7 @@ this.props.history.push(`/cadastro-lancamentos/${id}`)
                const index = lancamentos.indexOf(lancamento);
                if(index !== -1){
                    lancamento['status'] = status;
-                   lancamentos[index] = lancamento;
+                   lancamentos[index] = lancamento
                    this.setState({lancamentos});
                }
                 messages.mensagemSucesso("Status atualizado com sucesso");
@@ -144,9 +148,17 @@ this.props.history.push(`/cadastro-lancamentos/${id}`)
                                 
                             </FormGroup>
 
-                            <button onClick={this.buscar} type="button" className="btn btn-success">Buscar</button>
+                            <button onClick={this.buscar} 
+                            type="button"
+                             className="btn btn-success">
+                                 <i className="pi pi-search"></i>
+                                 Buscar</button>
                             &nbsp;
-                            <button onClick={this.preparaFormularioCadastro} type="button" className="btn btn-danger">Cadastrar</button>
+                            <button onClick={this.preparaFormularioCadastro}
+                             type="button"
+                              className="btn btn-danger">
+                                   <i className="pi pi-plus"></i>
+                                  Cadastrar</button>
 
                         </div>
                     </div>

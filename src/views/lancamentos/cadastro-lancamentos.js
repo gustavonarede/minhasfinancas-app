@@ -28,6 +28,7 @@ class CadastroLancamentos extends React.Component {
     }
     componentDidMount(){
         const params = this.props.match.params
+        
         if(params.id)
        {
            this.service.obterPorId(params.id)
@@ -45,8 +46,6 @@ class CadastroLancamentos extends React.Component {
         const { descricao, valor, mes, ano, tipo} = this.state;
         const lancamento ={  descricao, valor, mes, ano,tipo, usuario: usuarioLogado.id};
 
-      
-            
         try{
             this.service.validar(lancamento)
         }catch(erro){
@@ -65,8 +64,8 @@ class CadastroLancamentos extends React.Component {
 
         }
         atualizar = () => {
-            const { descricao, valor, mes, ano, tipo, id, usuario} = this.state;
-        const lancamento ={  descricao, valor, mes, ano,tipo,id};
+            const { descricao, valor, mes, ano, tipo,id,usuario } = this.state;
+        const lancamento ={  descricao, valor, mes, ano, tipo,  usuario, id};
             
             this.service
                 .atualizar(lancamento)
@@ -165,16 +164,23 @@ class CadastroLancamentos extends React.Component {
                             {
                                 this.state.atualizando ? 
                                 (
-                                    <button onClick={this.atualizar} className="btn btn-primary">Atualizar</button>
+                                    <button onClick={this.atualizar}
+                                     className="btn btn-success">
+                                         <i className="pi pi-refresh"></i>Atualizar
+                                         </button>
 
                                     
                                 ): (
-                                        <button onClick={this.submit} className="btn btn-success">Salvar</button>
+                                        <button onClick={this.submit} 
+                                        className="btn btn-success">
+                                         <i className="pi pi-save"></i>   Salvar</button>
                                     
                                 )
                             }
                         
-                        <button onClick={e => this.props.history.push('/consulta-lancamentos')} className="btn btn-danger">Cancelar</button>
+                        <button onClick={e => this.props.history.push('/consulta-lancamentos')}
+                         className="btn btn-danger">
+                             <i className="pi pi-times"></i>Cancelar</button>
                         </div>
                         </div>
                 </Card>
