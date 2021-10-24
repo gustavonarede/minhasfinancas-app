@@ -65,7 +65,7 @@ class CadastroLancamentos extends React.Component {
         }
         atualizar = () => {
             const { descricao, valor, mes, ano, tipo,id,usuario } = this.state;
-        const lancamento ={  descricao, valor, mes, ano, tipo,  usuario, id};
+        const lancamento ={  descricao, valor, mes, ano, tipo,  usuario, id};;
             
             this.service
                 .atualizar(lancamento)

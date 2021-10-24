@@ -7,7 +7,7 @@ const deslogar = () => {
 }
 
 const isUsuarioAutenticado = ()=>{
-  return isUsuarioAutenticado();
+  return AuthService.isUsuarioAutenticado();
 }
 function Navbar(){
     
@@ -27,7 +27,7 @@ function Navbar(){
               <NavbarItem render={isUsuarioAutenticado()} href="#/home" label="Home" />
               <NavbarItem render={isUsuarioAutenticado()} href="#/cadastro-usuarios" label="Usuarios" />
               <NavbarItem render={isUsuarioAutenticado()} href="#/consulta-lancamentos" label="Lançamentos" />
-              <NavbarItem  render={isUsuarioAutenticado()} onClick={deslogar} href="#/login" label="Sair" />
+              <NavbarItem render={isUsuarioAutenticado()}  onClick={deslogar} href="#/login" label="Sair" />
               </ul>
 
         </div>
