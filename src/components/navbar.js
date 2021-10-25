@@ -21,7 +21,7 @@ function Navbar(props){
               <NavbarItem render={props.isUsuarioAutenticado} href="#/home" label="Home" />
               <NavbarItem render={props.isUsuarioAutenticado} href="#/cadastro-usuarios" label="Usuarios" />
               <NavbarItem render={props.isUsuarioAutenticado} href="#/consulta-lancamentos" label="Lançamentos" />
-              <NavbarItem render={props.isUsuarioAutenticado}  onClick={deslogar} href="#/login" label="Sair" />
+              <NavbarItem render={props.isUsuarioAutenticado}  onClick={props.deslogar} href="#/login" label="Sair" />
               </ul>
 
         </div>
@@ -32,7 +32,7 @@ function Navbar(props){
 export default () =>{
   <AuthConsumer>.
     {( context) =>(
-      <Navbar isUsuarioAutenticado={contextisUsuarioAutenticado}
+      <Navbar isUsuarioAutenticado={contexto.isUsuarioAutenticado}
         deslogar={context.encerrarSessao}/>
     )}
   </AuthConsumer>
