@@ -3,13 +3,13 @@ import NavbarItem from './navbarItem'
 
 import { AuthConsumer } from '../main/provedorAutenticacao'
 
-function Navbar(props){
+ export const Navbar = (props) => {
     
     return (
 
-        <div className="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+      <div className="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
       <div className="container">
-        <a href="/home" class="navbar-brand">Minhas Finanças</a>
+        <a href="/home" className="navbar-brand">Minhas Finanças</a>
         <button className="navbar-toggler" type="button"
          data-toggle="collapse" data-target="#navbarResponsive"
           aria-controls="navbarResponsive" aria-expanded="false"
@@ -29,11 +29,11 @@ function Navbar(props){
     </div>
     )
 }
-export default () =>{
+export default  () =>{
   <AuthConsumer>.
     {( context) =>(
-      <Navbar isUsuarioAutenticado={contexto.isUsuarioAutenticado}
+      <Navbar isUsuarioAutenticado={context.isUsuarioAutenticado}
         deslogar={context.encerrarSessao}/>
     )}
   </AuthConsumer>
-} 
+}

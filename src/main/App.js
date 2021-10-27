@@ -2,7 +2,7 @@
 import React from 'react';
 
 import Rotas from './rotas'
-import Navbar from '../components/navbar'
+import {Navbar} from '../components/navbar'
 
 import {Button}  from 'primereact/button';
 
