@@ -32,7 +32,7 @@ import { AuthConsumer } from '../main/provedorAutenticacao'
 export default  () =>{
   <AuthConsumer>.
     {( context) =>(
-      <Navbar isUsuarioAutenticado={context.isUsuarioAutenticado}
+      <Navbar isUsuarioAutenticado={context.isAutenticado}
         deslogar={context.encerrarSessao}/>
     )}
   </AuthConsumer>

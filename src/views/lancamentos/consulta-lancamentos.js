@@ -111,7 +111,7 @@ this.props.history.push(`/cadastro-lancamentos/${id}`)
                             <FormGroup htmlFor="inputAno"
                              label="Ano: *">
                                 <input type="text"
-                                 class="form-control"
+                                 className="form-control"
                                   id="inputAno"
                                  value={this.state.ano}
                                  onChange={e => this.setState({ano: e.target.value})}
@@ -131,7 +131,7 @@ this.props.history.push(`/cadastro-lancamentos/${id}`)
                             <FormGroup htmlFor="inputDesc"
                              label="Descrição: ">
                                 <input type="text"
-                                 class="form-control"
+                                 className="form-control"
                                   id="inputDesc"
                                  value={this.state.descricao}
                                  onChange={e => this.setState({descricao: e.target.value})}
