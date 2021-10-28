@@ -4,7 +4,7 @@ import NavbarItem from './navbarItem'
 import { AuthConsumer } from '../main/provedorAutenticacao'
 
  export const Navbar = (props) => {
-    
+  
     return (
 
       <div className="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
@@ -18,6 +18,7 @@ import { AuthConsumer } from '../main/provedorAutenticacao'
         </button>
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navbar-nav">
+            
               <NavbarItem render={props.isUsuarioAutenticado} href="#/home" label="Home" />
               <NavbarItem render={props.isUsuarioAutenticado} href="#/cadastro-usuarios" label="Usuarios" />
               <NavbarItem render={props.isUsuarioAutenticado} href="#/consulta-lancamentos" label="Lançamentos" />
@@ -29,11 +30,19 @@ import { AuthConsumer } from '../main/provedorAutenticacao'
     </div>
     )
 }
+
 export default  () =>{
-  <AuthConsumer>.
-    {( context) =>(
-      <Navbar isUsuarioAutenticado={context.isAutenticado}
-        deslogar={context.encerrarSessao}/>
-    )}
+  
+  <AuthConsumer>
+    
+    {( context) =>{
+      console.log(context)
+      return(
+
+        <Navbar isUsuarioAutenticado={context.isAutenticado} deslogar={context.encerrarSessao} />
+      )
+    }}
+  
+    
   </AuthConsumer>
 }
